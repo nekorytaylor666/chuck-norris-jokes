@@ -1,0 +1,6 @@
+<div *ngIf="joke" class="gradient joke-container shadow">
+  <span class="joke">
+    {{ joke.joke }}
+  </span>
+  <button (click)="delete()">delete</button>
+</div>
