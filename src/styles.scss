@@ -20,3 +20,16 @@ ul {
 a {
   text-decoration: none;
 }
+
+input:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+
+//workaround for pagination encapsulation. I knew about custom pagination option but i didn't have time for that
+.pagination .ngx-pagination .current {
+  background: $yellow !important;
+  color: $red !important;
+}

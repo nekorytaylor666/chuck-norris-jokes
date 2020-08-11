@@ -1,5 +1,30 @@
+<app-add-joke (addJokeRequest)="addJoke($event)"></app-add-joke>
+<div class="pagination-container">
+  <div class="input-control">
+    <label for="itemNumber">Items per page:</label>
+    <input
+      type="number"
+      [(ngModel)]="itemsPerPage"
+      class="custom-input"
+      name="itemNumber"
+    />
+  </div>
+</div>
+
 <ul class="jokes">
-  <li *ngFor="let joke of jokes">
+  <li
+    *ngFor="
+      let joke of jokes
+        | paginate: { itemsPerPage: itemsPerPage, currentPage: page }
+    "
+  >
     <app-joke [joke]="joke" (deleteRequest)="deleteJoke($event)"></app-joke>
   </li>
 </ul>
+
+<div class="pagination-container">
+  <pagination-controls
+    class="pagination"
+    (pageChange)="page = $event"
+  ></pagination-controls>
+</div>

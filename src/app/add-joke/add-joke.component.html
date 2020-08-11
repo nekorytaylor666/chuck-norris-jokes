@@ -1,0 +1,14 @@
+<form
+  class="joke-form"
+  [formGroup]="newJokeForm"
+  (ngSubmit)="onSubmit(newJokeForm.value)"
+>
+  <label for="jokeText">Joke text:</label>
+  <input
+    class="custom-input"
+    type="text"
+    formControlName="jokeText"
+    name="jokeText"
+  />
+  <input type="submit" value="Add joke" class="button" />
+</form>

@@ -8,6 +8,8 @@ import { Joke } from "../shared/Joke";
   styleUrls: ["./jokes.component.scss"],
 })
 export class JokesComponent implements OnInit {
+  page = 1;
+  itemsPerPage = 10;
   jokes: Joke[];
   constructor(private jokeService: JokeService) {}
   getJokes(): void {
@@ -17,6 +19,10 @@ export class JokesComponent implements OnInit {
   deleteJoke(joke: Joke) {
     this.jokeService.deleteJoke(joke.id);
     this.getJokes();
+  }
+
+  addJoke(joke: Joke) {
+    this.jokeService.addJoke(joke);
   }
 
   ngOnInit() {
